@@ -3,7 +3,7 @@ recognition.lang = 'ko-KR';
 
 recognition.onresult = (event) => {
     const speechToText = event.results[0][0].transcript;
-    document.getElementById('question-text').innerHTML += `<p>User: ${speechToText}</p>`;
+    document.getElementById('question-text').innerHTML += `<br><br><p>User: ${speechToText}</p>`;
     
     fetch('/api/chat', {
         method: 'POST',

@@ -13,7 +13,7 @@ function askQuestion(questionText = "안녕하세요, 감정 일기장 코디네
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ message: questionText })
+        body: JSON.stringify({ text: questionText })
     })
     .then(response => response.json())
     .then(data => {
