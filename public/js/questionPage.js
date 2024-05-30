@@ -7,7 +7,7 @@ document.getElementById('home-button').addEventListener('click', () => {
     document.getElementById('start-menu').style.display = 'block';
 });
 
-function askQuestion(questionText = "안녕하세요, 감정 일기장 코디네이터 '보미'라고 합니다.") {
+function askQuestion(questionText) {
     fetch('/api/tts', {
         method: 'POST',
         headers: {
@@ -18,6 +18,13 @@ function askQuestion(questionText = "안녕하세요, 감정 일기장 코디네
     .then(response => response.json())
     .then(data => {
         const audio = new Audio(data.audioUrl);
+        audio.addEventListener("play", function() {
+            document.getElementsByClassName("ai-character")[0].src = "images/character_talk.gif";
+        });
+        audio.addEventListener("ended", function() {
+            document.getElementsByClassName("ai-character")[0].src = "images/character_base.png";
+        });
+        audio.volume = 0.05;
         audio.play();
         document.getElementById('question-text').innerText = questionText;
     })

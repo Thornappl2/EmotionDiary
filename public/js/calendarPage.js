@@ -45,7 +45,7 @@ function renderCalendar() {
                     const dayDiv = document.createElement('div');
                     dayDiv.classList.add('calendar-day');
                     dayDiv.innerText = day;
-                    
+
                     if (record) {
                         dayDiv.classList.add('recorded');
                         dayDiv.addEventListener('click', () => showRecord(record));
@@ -66,8 +66,34 @@ function showRecord(record) {
     document.getElementById('calendar').style.display = 'none';
     document.getElementById('record-detail').style.display = 'block';
     document.getElementById('back-button').style.display = 'none';
+
+    fetch('/api/find_out_emotion', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userAnswer: record.userAnswer })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("find-out-emotion").innerText = "감정에 대한 AI의 의견 :" + data.reply;
+
+        fetch('/api/find_out_reason', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ userAnswer: record.userAnswer, emotions: data.reply })
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("find-out-reason").innerText = "원인에 대한 AI의 의견 :" + data.reply;
+        })
+        .catch(error => console.error('Error:', error));
+    })
+    .catch(error => console.error('Error:', error));
     
-    document.getElementById('record-text').innerText = `User: ${record.userText}\nAI: ${record.aiText}`;
+    document.getElementById('record-text').innerText = `AI: ${record.aiQuestion}\nUser: ${record.userAnswer}`;
     document.getElementById('record-audio').src = record.audioUrl;
 }
 

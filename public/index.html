@@ -23,9 +23,14 @@
             <h1>감정 일기장</h1>
         </header>
         <main>
-            <img src="images/ai-character.png" alt="AI Character" class="ai-character">
-            <p id="question-text">안녕하세요, 감정 일기장 코디네이터 '보미'라고 합니다.</p>
+            <img src="images/character_base.png" alt="AI Character" class="ai-character">
+            <p id="question-text">안녕하세요, 감정 일기장 코디네이터 '보미'라고 합니다. <br> 오늘 하루는 어떠셨나요?</p>
             <button id="mic-button" class="mic-button">🎤 음성 입력하기</button>
+            <div id="text-input-area">
+                <textarea id="text-input" placeholder="응답을 입력해주세요."></textarea>
+                <br>
+                <button id="submit-text-input" class="button">응답</button>
+            </div>
             <button id="home-button" class="button">홈으로</button>
         </main>
     </div>
@@ -41,6 +46,9 @@
             <h2>기록 세부사항</h2>
             <p id="record-text"></p>
             <audio id="record-audio" controls></audio>
+            <br> <br>
+            <p id="find-out-emotion"></p>
+            <p id="find-out-reason"></p>
             <button id="back-to-calendar" class="button">달력으로 돌아가기</button>
         </div>
     </div>
