@@ -4,29 +4,29 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: #f2a89d;
 }
 
 .container {
     text-align: center;
+    margin: 20px 0px;
+    padding: 25px 25px;
+    border-radius: 15px;
 }
 
 .notebook {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .notebook-image {
-    width: 300px;
+    width: 350px;
     height: auto;
 }
 
 .overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: white;
     text-align: center;
 }
@@ -48,7 +48,7 @@ p {
     padding: 10px;
     margin: 10px auto;
     background-color: white;
-    color: #f2a89d;
+    color: black;
     border: none;
     border-radius: 5px;
     font-size: 1em;
@@ -61,12 +61,11 @@ p {
 }
 
 #question-page {
-    display: none;  /* 페이지가 처음에는 숨겨져 있어야 합니다 */
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    background-color: white;
+    background-color: #F1F1F1;
 }
 
 header {
@@ -94,11 +93,15 @@ main {
 #question-text {
     font-size: 1.2em;
     margin-bottom: 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .mic-button {
     padding: 10px 20px;
-    background-color: black;
+    background-color: rgb(69, 69, 69);
     color: white;
     border: none;
     border-radius: 5px;
@@ -106,8 +109,44 @@ main {
     cursor: pointer;
 }
 
+.mic-button:hover {
+    background-color: black;
+}
+
+#records-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: white;
+}
+
+#records-list {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.record {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.record:last-child {
+    border-bottom: none;
+}
+
+button.button {
+    margin-top: 20px;
+}
+
 #calendar-page {
-    display: none;  /* 페이지가 처음에는 숨겨져 있어야 합니다 */
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -144,13 +183,9 @@ main {
 }
 
 #record-detail {
-    display: none;  /* 페이지가 처음에는 숨겨져 있어야 합니다 */
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-}
-
-button.button {
     margin-top: 20px;
 }

@@ -8,6 +8,7 @@ document.getElementById('back-button').addEventListener('click', () => {
 document.getElementById('back-to-calendar').addEventListener('click', () => {
     document.getElementById('record-detail').style.display = 'none';
     document.getElementById('calendar').style.display = 'block';
+    document.getElementById('back-button').style.display = 'block';
 });
 
 function renderCalendar() {
@@ -64,6 +65,7 @@ function renderCalendar() {
 function showRecord(record) {
     document.getElementById('calendar').style.display = 'none';
     document.getElementById('record-detail').style.display = 'block';
+    document.getElementById('back-button').style.display = 'none';
     
     document.getElementById('record-text').innerText = `User: ${record.userText}\nAI: ${record.aiText}`;
     document.getElementById('record-audio').src = record.audioUrl;
