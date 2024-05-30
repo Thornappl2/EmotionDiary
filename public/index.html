@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,11 +26,12 @@
             <img src="images/ai-character.png" alt="AI Character" class="ai-character">
             <p id="question-text">안녕하세요, 감정 일기장 코디네이터 '보미'라고 합니다.</p>
             <button id="mic-button" class="mic-button">🎤 음성 입력하기</button>
+            <button id="home-button" class="home-button">홈으로</button>
         </main>
     </div>
     <div id="calendar-page" class="container" style="display:none;">
         <header>
-            <h1>CALENDER</h1>
+            <h1>CALENDAR</h1>
             <button id="back-button" class="button">뒤로</button>
         </header>
         <main id="calendar">
@@ -43,6 +44,11 @@
             <button id="back-to-calendar" class="button">달력으로 돌아가기</button>
         </div>
     </div>
-    <script src="js/main.js"></script>
+    <!-- Load common script first -->
+    <script src="js/common.js"></script>
+    <!-- Load page-specific scripts -->
+    <script src="js/startMenu.js"></script>
+    <script src="js/questionPage.js"></script>
+    <script src="js/calendarPage.js"></script>
 </body>
 </html>
